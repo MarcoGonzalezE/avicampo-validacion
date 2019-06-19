@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+    	<menuitem id="validation_menu" name="Validacion Granjas" parent="stock.menu_stock_config_settings" action="validacion_tranferencias_action"  sequence="110"/>
+    </data>
+</openerp>

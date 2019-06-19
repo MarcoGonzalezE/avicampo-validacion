@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<odoo>
+    <data>
+    <!-- BOTON EN LA TRANSFERENCIA -->
+    <record id="view_stock_picking_form" model="ir.ui.view"> 
+        <field name="name">view_stock_picking.form</field> 
+        <field name="model">stock.picking</field> 
+        <field name="inherit_id" ref="stock.view_picking_form"/> 
+        <field name="arch" type="xml">
+            <header position ="inside">
+                <button type="object" name="enviar_granja" string="Enviar a Granja" class="btn-primary" attrs="{'invisible':[('state', '!=', 'assigned')]}"/>
+            </header>
+        </field> 
+    </record> 
+
+    <record id="validacion_transferencias_view_form" model="ir.ui.view">
+        <field name="name">validacion.trasferencias.form.view</field>
+        <field name="model">granja.encargado</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="granja"/>
+                    <field name="granja_abr"/>
+                    <field name="encargado"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="validacion_transferencias_view_tree" model="ir.ui.view">
+        <field name="name">validacion.trasferencias.tree.view</field>
+        <field name="model">granja.encargado</field>
+        <field name="arch" type="xml">
+            <!-- <tree editable="top"> -->
+            <tree>
+                <field name="granja"/>
+                <field name="granja_abr"/>
+                <field name="encargado"/>
+            </tree>
+        </field>
+      </record>
+
+
+    <record id="validacion_tranferencias_action" model="ir.actions.act_window">
+        <field name="name">Granjas / Encargados</field>
+        <field name="res_model">granja.encargado</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">Registrar Encargado</p>
+        </field>
+    </record>
+
+    </data>
+</odoo> 
